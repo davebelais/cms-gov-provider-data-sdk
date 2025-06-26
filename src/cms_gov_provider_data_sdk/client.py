@@ -172,8 +172,8 @@ class Client(oapi.client.Client):
         Immediately starts the import process for a datastore.
 
         Parameters:
-            datastore_imports_post_request_body_content_application_json_schema:  # noqa: E501
-        """
+            datastore_imports_post_request_body_content_application_json_schema:
+        """  # noqa: E501
         response: sob.abc.Readable = self.request(
             "/datastore/imports",
             method="POST",
@@ -1240,11 +1240,11 @@ class Client(oapi.client.Client):
         Create new item revision/state.
 
         Parameters:
-            metastore_schemas_schema_id_items_identifier_revisions_post_request_body_content_application_json_schema:  # noqa: E501
+            metastore_schemas_schema_id_items_identifier_revisions_post_request_body_content_application_json_schema:
             schema_id: The name a of a specific schema. For instance, "
                 dataset."
             identifier: A dataset identifier
-        """
+        """  # noqa: E501
         response: sob.abc.Readable = self.request(
             "/metastore/schemas/{schema_id}/items/{identifier}/revisions".format(**{  # noqa: E501
                 "schema_id": str(oapi.client.format_argument_value(
@@ -1406,12 +1406,12 @@ class Client(oapi.client.Client):
         changing values, removing unchanged properties, and pasting to test.
 
         Parameters:
-             metastore_schemas_dataset_items_patch_request_body_content_application_json_schema  # noqa: E501
+             metastore_schemas_dataset_items_patch_request_body_content_application_json_schema
                 : The metadata format for all federal open data. Validates a
                 single JSON object entry (as opposed to entire Data.json
                 catalog).
             identifier: A dataset identifier
-        """
+        """  # noqa: E501
         response: sob.abc.Readable = self.request(
             "/metastore/schemas/dataset/items".format(**{
                 "identifier": str(oapi.client.format_argument_value(
@@ -1530,12 +1530,12 @@ class Client(oapi.client.Client):
         changing values, removing unchanged properties, and pasting to test.
 
         Parameters:
-             metastore_schemas_dataset_items_identifier_patch_request_body_content_application_json_schema  # noqa: E501
+             metastore_schemas_dataset_items_identifier_patch_request_body_content_application_json_schema
                 : The metadata format for all federal open data. Validates a
                 single JSON object entry (as opposed to entire Data.json
                 catalog).
             identifier: A dataset identifier
-        """
+        """  # noqa: E501
         response: sob.abc.Readable = self.request(
             "/metastore/schemas/dataset/items/{identifier}".format(**{
                 "identifier": str(oapi.client.format_argument_value(

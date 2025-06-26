@@ -142,17 +142,23 @@ def get_after_end_date(directory: Path) -> date | None:
     Get the most recent end date file name prefix from a directory,
     or `None` if no files have an end date prefix.
     """
+    end_date: date = DUMMY_END_DATE
     path: Path
     for path in directory.iterdir():
         if path.suffix == ".csv" and path.is_file():
             try:
-                return datetime.strptime(  # noqa: DTZ007
-                    path.stem.partition(".")[0], "%Y-%m-%d"
-                ).date()
+                end_date = max(
+                    datetime.strptime(  # noqa: DTZ007
+                        path.stem.partition(".")[0], "%Y-%m-%d"
+                    ).date(),
+                    end_date,
+                )
             except ValueError:
                 # Ignore files that do not match the expected date format
                 continue
-    return None
+    if end_date == DUMMY_END_DATE:
+        return None
+    return end_date
 
 
 def download_hospital_dataset(

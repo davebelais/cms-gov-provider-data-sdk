@@ -1,4 +1,4 @@
-# Contributing to oapi
+# Contributing to cms-gov-provider-data-sdk
 
 Please note that you must have [hatch](https://hatch.pypa.io/latest/)
 installed prior to performing the following steps.

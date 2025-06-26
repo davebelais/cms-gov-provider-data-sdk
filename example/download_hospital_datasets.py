@@ -146,7 +146,7 @@ def get_after_end_date(directory: Path) -> date | None:
     for path in directory.iterdir():
         if path.suffix == ".csv" and path.is_file():
             try:
-                return datetime.strptime(
+                return datetime.strptime(  # noqa: DTZ007
                     path.stem.partition(".")[0], "%Y-%m-%d"
                 ).date()
             except ValueError:
@@ -181,9 +181,7 @@ def download_hospital_dataset(
         client.request(download_url, method="GET") as response,
         open(temp_path, "w") as csv_io,
     ):
-        csv.writer(csv_io).writerows(
-            iter_csv(response, end_dates, after)
-        )
+        csv.writer(csv_io).writerows(iter_csv(response, end_dates, after))
     if DUMMY_END_DATE not in end_dates:
         # Only delete or rename the un-dated file if there is an end date in
         # the dataset
@@ -191,9 +189,8 @@ def download_hospital_dataset(
             latest_end_date: date = max(end_dates)
             if (after is None) or latest_end_date > after:
                 os.rename(
-                    temp_path, directory / (
-                        f"{latest_end_date.isoformat()}.{name}"
-                    )
+                    temp_path,
+                    directory / (f"{latest_end_date.isoformat()}.{name}"),
                 )
             elif (after is not None) and latest_end_date <= after:
                 # If the latest end date is not after the `after` date,

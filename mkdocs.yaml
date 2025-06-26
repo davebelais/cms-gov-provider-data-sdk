@@ -5,8 +5,8 @@ edit_uri: blob/main/docs/
 nav:
 - Introduction: 'index.md'
 - API Reference:
-    - cms-gov-provider-data-sdk.client: 'api/client.md'
-    - cms-gov-provider-data-sdk.model: 'api/model.md'
+    - client: 'api/client.md'
+    - model: 'api/model.md'
 - Contributing: 'contributing.md'
 theme:
   name: material

@@ -1,1 +1,1 @@
-::: cms-gov-provider-data-sdk.model
+::: cms_gov_provider_data_sdk.model
